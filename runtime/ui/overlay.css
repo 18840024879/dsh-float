@@ -1,0 +1,61 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  cursor: crosshair;
+  user-select: none;
+  font-family: 'Microsoft YaHei UI', 'Segoe UI', system-ui, sans-serif;
+}
+
+#shot {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+#veil {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.16);
+  pointer-events: none;
+}
+
+#hint {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(12, 14, 20, 0.82);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+#selection {
+  position: fixed;
+  border: 1.5px solid #7f96ff;
+  border-radius: 2px;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+#size {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(10, 12, 18, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}

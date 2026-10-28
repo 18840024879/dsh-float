@@ -1,0 +1,50 @@
+{
+  "name": "dsh-float",
+  "version": "0.1.0",
+  "description": "Windows desktop floating assistant for DeepSeek Harness: an always-on-top chat panel with streaming answers, model switching, and region-screenshot questions.",
+  "license": "MIT",
+  "author": "王泓基",
+  "type": "module",
+  "main": "lib/index.js",
+  "os": [
+    "win32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18840024879/dsh-float.git"
+  },
+  "homepage": "https://github.com/18840024879/dsh-float#readme",
+  "bugs": {
+    "url": "https://github.com/18840024879/dsh-float/issues"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "floating-widget",
+    "assistant",
+    "screenshot"
+  ],
+  "files": [
+    "lib",
+    "runtime",
+    "tools",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.1-rc.2": "compatible"
+      }
+    }
+  }
+}

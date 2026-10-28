@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>DeepSeek 悬浮助手</title>
+</head>
+<body data-view="panel">
+  <section id="panel" class="panel" aria-label="DeepSeek 悬浮助手">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <div class="brand-text">
+          <strong>DeepSeek</strong>
+          <button id="modelButton" class="model-button" type="button" title="选择模型">
+            <span id="modelLabel">模型</span>
+          </button>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="newChatBtn" class="icon-button" type="button" title="新对话" aria-label="新对话">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 4v12M4 10h12" />
+          </svg>
+        </button>
+        <button id="collapseBtn" class="icon-button" type="button" title="隐藏（双击桌宠可再次打开）" aria-label="隐藏">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M4 10h12" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div id="toast" class="toast" role="status" hidden></div>
+
+    <main id="messages" class="messages">
+      <div id="empty" class="empty">
+        <span class="empty-mark"></span>
+        <h1>有什么可以帮你？</h1>
+        <p>直接提问，或截图后再问。</p>
+        <div class="chips">
+          <button type="button" data-prompt="解释一下这段代码：">解释代码</button>
+          <button type="button" data-prompt="帮我写一个正则表达式：">写正则</button>
+          <button type="button" data-prompt="帮我梳理一下这个问题的思路：">理思路</button>
+        </div>
+      </div>
+    </main>
+
+    <div id="attachment" class="attachment" hidden>
+      <img id="attachmentImage" alt="待发送的截图">
+      <button id="removeShot" class="remove-shot" type="button" aria-label="移除截图">×</button>
+    </div>
+
+    <form id="composer" class="composer" autocomplete="off">
+      <textarea id="input" rows="1" placeholder="问我任何事…" aria-label="输入消息"></textarea>
+      <div class="composer-row">
+        <button id="shotButton" class="tool-button" type="button" title="截图提问" aria-label="截图提问">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M3 6.5h2.6l1.2-1.7h6.4l1.2 1.7H17v8.7H3z" />
+            <circle cx="10" cy="10.6" r="2.8" />
+          </svg>
+        </button>
+        <span id="hotkeyHint" class="composer-hint"></span>
+        <button id="stopButton" class="tool-button stop-button" type="button" title="停止回答" aria-label="停止回答" hidden>
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <rect x="6" y="6" width="8" height="8" rx="1.4" />
+          </svg>
+        </button>
+        <button id="sendButton" class="send-button" type="submit" title="发送" aria-label="发送" disabled>
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 15V5M5.5 9.5 10 5l4.5 4.5" />
+          </svg>
+        </button>
+      </div>
+    </form>
+
+    <div id="modelSheet" class="sheet" hidden>
+      <div class="sheet-head">
+        <strong>选择模型</strong>
+        <button id="closeSheet" class="icon-button" type="button" aria-label="关闭">×</button>
+      </div>
+      <div id="modelList" class="model-list"></div>
+    </div>
+  </section>
+
+  <div class="resize-handle grip-east" data-resize="e" aria-hidden="true"></div>
+  <div class="resize-handle grip-south" data-resize="s" aria-hidden="true"></div>
+  <div class="resize-handle grip-south-east" data-resize="se" title="拖动调整大小"></div>
+
+  <script src="vendor/katex/katex.min.js"></script>
+  <script src="format.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

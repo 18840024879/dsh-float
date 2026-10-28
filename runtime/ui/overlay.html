@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data: blob:; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="overlay.css">
+  <title>选择截图区域</title>
+</head>
+<body>
+  <img id="shot" alt="" draggable="false">
+  <div id="veil"></div>
+  <div id="hint">拖拽选择区域 · Esc 取消</div>
+  <div id="selection" hidden>
+    <span id="size"></span>
+  </div>
+  <script src="overlay.js"></script>
+</body>
+</html>
